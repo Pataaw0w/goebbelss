@@ -2,60 +2,38 @@ package goebbels;
 
 
 public class Flaeche implements IFlaeche {
-	private Dreieck d;
-	private Kreis k;
-	private Rechteck r;
+	private Object dreieck;
+	private Object kreis;
+	private Object rechteck;
+	private double a;
+	private double b;
+	private double c;
+	private double s;
 	
-	public Flaeche(){
-		
+	public Flaeche(double a){
+		this.a = a;
+	}
+	public Flaeche(double a, double b){
+		this.a = a;
+		this.b = b;
+	}
+	public Flaeche(double a, double b, double c){
+		this.a = a;
+		this.b = b;
+		this.c = c;
+		s = (a+b+c)/2;
 	}
 	
-	public boolean istDasDreieck(Object o) {
-		if(o == this.d) return true;
-		return false;
-	}
-	
-	public boolean istDasKreis(Object o) {
-		if(o == this.k) return true;
-		return false;
-	}
-	
-	public boolean istDasRechteck(Object o) {
-		if(o == this.r) return true;
-		return false;
-	}
 		
 	@Override
 	public double getFlaeche() {
-		if(istDasDreieck(d) == true) return Math.sqrt(this.d.s*(this.d.s-this.d.a)*(this.d.s-this.d.b)*(this.d.s-this.d.c));
-		if(istDasKreis(k) == true) return 2*this.k.r*Math.PI;
-		if(istDasRechteck(r) == true) return this.r.a * this.r.b;
-		return 0;
-	}
-	
-	public class Dreieck{
-		private double a,b,c,s;
-		public Dreieck(double a, double b, double c){
-			this.a = a;
-			this.b = b;
-			this.c = c;
-			s = (a+b+c)/2;
-		}
-	}
-	
-	public class Rechteck{
-		private double a,b;
-		public Rechteck(double a, double b){
-			this.a = a;
-			this.b = b;
-		}
-	}
-	
-	public class Kreis{
-		private double r;
-		public Kreis(double r){
-			this.r = r;
-		}
+		double flaeche;
+		flaeche = 0;
+		if(a >= 1) flaeche = this.a*this.a*Math.PI;
+		if((a >= 1)&&(b >= 1)) flaeche = this.a * this.b;
+		if((a >= 1) && (b >= 1) && (c >= 1)) flaeche = Math.sqrt(this.s*(this.s-this.a)*(this.s-this.b)*(this.s-this.c));
+
+		return flaeche;
 	}
 }
 
