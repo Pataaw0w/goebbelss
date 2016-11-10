@@ -1,1 +1,17 @@
+package goebbels;
+/**
+ * @author Vincent Schwartz
+ * @version 2016-11-10
+ */
+public class Rauminhalt implements IRauminhalt{
 
+	@Override
+	public double getRaumInhalt() {
+		
+		return 0;
+	}
+	//Zylinder Volumen: Grundfläche G * Höhe h
+	//Quader Volumen: a * b * c
+	//Prisma Volumen: Grundfläche AG * Höhe h
+
+}
