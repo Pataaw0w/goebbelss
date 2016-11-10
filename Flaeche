@@ -1,6 +1,15 @@
+/**
+ * @author Christoph
+ * @version 2016-11-10
+ * Die Klasse wird verwendet um die Flächenformel von einem Kreis, Rechteck und Dreieck zu berechnen.
+ */
+
 package goebbels;
 
-
+/**
+ * Object Kreis Dreieck und Rechteck erstellen und die werte a,b,c (z.B. länge, breite, höhe)
+ * s ist für das Dreieck (s = (a+b+c)/2)
+ */
 public class Flaeche implements IFlaeche {
 	private Object dreieck;
 	private Object kreis;
@@ -10,13 +19,25 @@ public class Flaeche implements IFlaeche {
 	private double c;
 	private double s;
 	
+	/**
+	 * Erstellung Mehrerer Konstruktoren..
+	 *  	Wenn 1 Wert, Kreis
+	 */
 	public Flaeche(double a){
 		this.a = a;
 	}
+	
+	/**
+	 * Wenn 2 Werte, Rechteck
+	 */
 	public Flaeche(double a, double b){
 		this.a = a;
 		this.b = b;
 	}
+	
+	/**
+	 * Wenn 3 Werte, Dreieck
+	 */
 	public Flaeche(double a, double b, double c){
 		this.a = a;
 		this.b = b;
@@ -24,7 +45,13 @@ public class Flaeche implements IFlaeche {
 		s = (a+b+c)/2;
 	}
 	
-		
+	/**
+	 * getFlaeche berechnet die Fläche von Kreis, Rechteck, Dreieck
+	 * Wenn nur 1 Eingabe, Kreis
+	 * Wenn 2 Eingaben, Rechteck
+	 * Wenn 3 Eingaben, Dreieck
+	 * @return flaeche
+	 */
 	@Override
 	public double getFlaeche() {
 		double flaeche;
@@ -36,4 +63,5 @@ public class Flaeche implements IFlaeche {
 		return flaeche;
 	}
 }
+
 
