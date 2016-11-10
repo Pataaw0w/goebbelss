@@ -10,7 +10,7 @@ package goebbels;
  * Object Kreis Dreieck und Rechteck erstellen und die werte a,b,c (z.B. länge, breite, höhe)
  * s ist für das Dreieck (s = (a+b+c)/2)
  */
-public class Flaeche implements IFlaeche {
+public class Flaeche extends Zahlen implements IFlaeche {
 	private Object dreieck;
 	private Object kreis;
 	private Object rechteck;
@@ -56,6 +56,10 @@ public class Flaeche implements IFlaeche {
 	public double getFlaeche() {
 		double flaeche;
 		flaeche = 0;
+		if(this.s - this.a == 0 ) throw new NumberFormatException();
+		if(this.s - this.b == 0 ) throw new NumberFormatException();
+		if(this.s - this.c == 0 ) throw new NumberFormatException();
+		if(a == 0) throw new NumberFormatException();
 		if(a >= 1) flaeche = this.a*this.a*Math.PI;
 		if((a >= 1)&&(b >= 1)) flaeche = this.a * this.b;
 		if((a >= 1) && (b >= 1) && (c >= 1)) flaeche = Math.sqrt(this.s*(this.s-this.a)*(this.s-this.b)*(this.s-this.c));
@@ -63,5 +67,3 @@ public class Flaeche implements IFlaeche {
 		return flaeche;
 	}
 }
-
-
