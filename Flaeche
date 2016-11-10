@@ -14,6 +14,7 @@ public class Flaeche extends Zahlen implements IFlaeche {
 	private Object dreieck;
 	private Object kreis;
 	private Object rechteck;
+	private Zahlen z;
 	private double a;
 	private double b;
 	private double c;
@@ -24,24 +25,24 @@ public class Flaeche extends Zahlen implements IFlaeche {
 	 *  	Wenn 1 Wert, Kreis
 	 */
 	public Flaeche(double a){
-		this.a = a;
+		this.a = this.z.getList().get(0);
 	}
 	
 	/**
 	 * Wenn 2 Werte, Rechteck
 	 */
 	public Flaeche(double a, double b){
-		this.a = a;
-		this.b = b;
+		this.a = this.z.getList().get(0);
+		this.b = this.z.getList().get(1);
 	}
 	
 	/**
 	 * Wenn 3 Werte, Dreieck
 	 */
 	public Flaeche(double a, double b, double c){
-		this.a = a;
-		this.b = b;
-		this.c = c;
+		this.a = this.z.getList().get(0);
+		this.b = this.z.getList().get(1);
+		this.c = this.z.getList().get(2);
 		s = (a+b+c)/2;
 	}
 	
