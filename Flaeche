@@ -1,1 +1,61 @@
+package goebbels;
+
+
+public class Flaeche implements IFlaeche {
+	private Dreieck d;
+	private Kreis k;
+	private Rechteck r;
+	
+	public Flaeche(){
+		
+	}
+	
+	public boolean istDasDreieck(Object o) {
+		if(o == this.d) return true;
+		return false;
+	}
+	
+	public boolean istDasKreis(Object o) {
+		if(o == this.k) return true;
+		return false;
+	}
+	
+	public boolean istDasRechteck(Object o) {
+		if(o == this.r) return true;
+		return false;
+	}
+		
+	@Override
+	public double getFlaeche() {
+		if(istDasDreieck(d) == true) return Math.sqrt(this.d.s*(this.d.s-this.d.a)*(this.d.s-this.d.b)*(this.d.s-this.d.c));
+		if(istDasKreis(k) == true) return 2*this.k.r*Math.PI;
+		if(istDasRechteck(r) == true) return this.r.a * this.r.b;
+		return 0;
+	}
+	
+	public class Dreieck{
+		private double a,b,c,s;
+		public Dreieck(double a, double b, double c){
+			this.a = a;
+			this.b = b;
+			this.c = c;
+			s = (a+b+c)/2;
+		}
+	}
+	
+	public class Rechteck{
+		private double a,b;
+		public Rechteck(double a, double b){
+			this.a = a;
+			this.b = b;
+		}
+	}
+	
+	public class Kreis{
+		private double r;
+		public Kreis(double r){
+			this.r = r;
+		}
+	}
+}
 
